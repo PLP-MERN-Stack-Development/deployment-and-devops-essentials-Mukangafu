@@ -1,11 +1,11 @@
-import express from "express"; 
+import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
 import bugRoutes from "./routes/bugRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import adminRoutes from "./routes/adminRoutes.js";   // ✅ Admin routes enabled
+import adminRoutes from "./routes/adminRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 dotenv.config();
@@ -22,16 +22,21 @@ app.use(express.json());
 //          ROUTES
 // ==========================
 
-// Public Auth (Register / Login)
+// Root route (Render will show this)
+app.get("/", (req, res) => {
+  res.send("🔥 MERN Bug Tracker API is running successfully!");
+});
+
+// Auth routes
 app.use("/api/auth", authRoutes);
 
-// Normal User Bug CRUD Operations
+// Bug CRUD routes
 app.use("/api/bugs", bugRoutes);
 
-// Admin-only API Routes
-app.use("/api/admin", adminRoutes);   // ✅ REQUIRED
+// Admin routes
+app.use("/api/admin", adminRoutes);
 
-// Global Error Handler
+// Global error handler
 app.use(errorHandler);
 
 // ==========================
@@ -40,8 +45,8 @@ app.use(errorHandler);
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log("DB Error:", err));
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.log("❌ DB Connection Error:", err));
 
 // ==========================
 //       START SERVER
@@ -50,5 +55,5 @@ mongoose
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
