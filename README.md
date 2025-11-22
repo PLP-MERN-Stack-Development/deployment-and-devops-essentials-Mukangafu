@@ -1,77 +1,207 @@
-# Deployment and DevOps for MERN Applications
+MERN Bug Tracker
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+A full-stack Bug Tracking System built using the MERN stack (MongoDB, Express, React, Node.js).
+It allows users to report bugs, manage tasks, update statuses, and provides admin tools for oversight.
 
-## Assignment Overview
+Live Deployment:
+🔗 Frontend (Vercel): https://bug-eight-rho.vercel.app/
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+🔗 Backend (Render): https://testing-and-debugging-ensuring-mern-app-7n6u.onrender.com
 
-## Getting Started
+📌 Features
+👤 Authentication
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+User registration & login
 
-## Files Included
+JWT-based authentication
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+Role-based access (User, Admin)
 
-## Requirements
+🐞 Bug Management
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+Create, update, and delete bug reports
 
-## Deployment Platforms
+Attach priority, status, and description
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+Filter & sort bugs
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+Users only see their own bugs
 
-## CI/CD Pipeline
+🛠 Admin Features
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+View all users
 
-## Submission
+View all bugs
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Update any bug (status, assignment, notes)
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+Delete any bug
 
-## Resources
+⚙️ Technology Stack
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+Frontend
+
+React 19
+
+Vite
+
+Axios
+
+TailwindCSS
+
+React Router
+
+Context API
+
+Backend
+
+Node.js / Express
+
+MongoDB
+
+Mongoose
+
+JWT Authentication
+
+Deployment
+
+Frontend: Vercel
+
+Backend: Render
+
+Database: MongoDB Atlas
+
+🧱 Project Structure
+MERN-BUG-TRACKER/
+│
+├── client/               # Frontend (React + Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   ├── layout/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── api.js        # Axios API client
+│   │   ├── main.jsx
+│   │   └── ...
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── server/               # Backend (Node + Express)
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── server.js         # Entry point
+│   ├── .env
+│   └── package.json
+│
+└── README.md
+
+🚀 Installation & Setup (Local Development)
+1. Clone the Repository
+git clone <your-repo-url>
+cd MERN-BUG-TRACKER
+
+2. Install Dependencies
+Backend:
+cd server
+npm install
+
+Frontend:
+cd ../client
+npm install
+
+⚙️ Environment Variables
+Backend (server/.env)
+MONGO_URL=mongodb+srv://<your-mongo-url>
+JWT_SECRET=<your-secret>
+PORT=5000
+
+Frontend (client/.env)
+VITE_API_URL=http://localhost:5000
+
+▶️ Running the App Locally
+
+From the project root:
+
+npm run dev
+
+
+This runs both backend and frontend using concurrently.
+
+Frontend: http://localhost:5173
+
+Backend: http://localhost:5000
+
+📡 API Endpoints Overview
+Auth
+
+POST /api/auth/register
+
+POST /api/auth/login
+
+POST /api/auth/change-password
+
+PUT /api/auth/update/:id
+
+DELETE /api/auth/delete/:id
+
+User Bug Routes
+
+GET /api/bugs
+
+POST /api/bugs
+
+PUT /api/bugs/:id
+
+DELETE /api/bugs/:id
+
+Admin
+
+GET /api/admin/stats
+
+GET /api/admin/bugs
+
+GET /api/admin/users
+
+PUT /api/admin/bugs/:id
+
+DELETE /api/admin/bugs/:id
+
+🖼 Screenshots
+
+You can place images inside screenshots/ and embed them like below:
+
+Login Page
+
+Dashboard
+
+Bug List
+
+🎯 Future Improvements
+
+File uploads for bug reports
+
+Notifications system
+
+Activity logs
+
+Assign bugs to specific developers
+
+Tags / Labels
+
+Dark Mode
+
+👨‍💻 Author
+
+Daniel Muturi
+If you want me to help refine this project, extend features, or build documentation — just ask!
+
+⭐ Contributions
+
+Feel free to open issues or submit pull requests.
+
+📄 License
+
+MIT License.
